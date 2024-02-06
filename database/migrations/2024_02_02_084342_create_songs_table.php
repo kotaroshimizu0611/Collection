@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+        Schema::create('songs', function (Blueprint $table) {
+            $table->id(); // 曲のID
+            $table->string('name'); // 曲名
+            $table->string('artist'); // アーティスト名
+            $table->integer('order')->unsigned(); // 曲の順序
+            $table->timestamps(); // created_at と updated_at カラム
         });
     }
 
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('songs');
     }
 };

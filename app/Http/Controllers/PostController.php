@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
-    public function index()
-    {
-        $posts = Post::all(); // Postモデルを使用して全ポストを取得
-        return view('posts.index', ['posts' => $posts]);
-    }
+    public function index(Post $post)//インポートしたPostをインスタンス化して$postとして使用。
+ {
+    return $post->get();//$postの中身を戻り値にする。
+ }
 }
-
