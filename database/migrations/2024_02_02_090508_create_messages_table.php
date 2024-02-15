@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id(); // メッセージのID
             $table->unsignedBigInteger('user_id'); // メッセージを送信したユーザーのID
             $table->timestamp('sent_at'); // メッセージが送信された時刻
-            $table->timestamps(); // created_at と updated_at カラム
+            $table->timestamps(); // created_at と updated_at 
         });
     }
 

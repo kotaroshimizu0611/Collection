@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('songs', function (Blueprint $table) {
-            $table->id(); // 曲のID
+            $table->id(); // 曲ID
             $table->string('name'); // 曲名
             $table->string('artist'); // アーティスト名
-            $table->integer('order')->unsigned(); // 曲の順序
-            $table->timestamps(); // created_at と updated_at カラム
+            $table->integer('order')->unsigned(); // 曲順序
+            $table->timestamps(); // created_at と updated_at 
         });
     }
 
