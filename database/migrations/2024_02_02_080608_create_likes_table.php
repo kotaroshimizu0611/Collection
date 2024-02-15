@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('likes', function (Blueprint $table) {
-            $table->id(); // プライマリキーとしてのID
+            $table->id(); // 主キー
             $table->unsignedBigInteger('user_id'); // ユーザーID
             $table->unsignedBigInteger('post_id'); // 投稿ID
             $table->timestamps(); 
