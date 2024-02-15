@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id(); // ID
             $table->unsignedBigInteger('post_id'); // 投稿ID
             $table->unsignedBigInteger('song_id'); // 曲ID
-            $table->timestamps(); // created_at と updated_at カラム
+            $table->timestamps(); // created_at と updated_at 
             
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->foreign('song_id')->references('id')->on('songs')->onDelete('cascade');
