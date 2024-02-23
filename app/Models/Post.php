@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\User;
 
 class Post extends Model
 {
@@ -22,6 +23,13 @@ class Post extends Model
      * @param int $limit_count 取得する件数。デフォルトは10。
      * @return \Illuminate\Database\Eloquent\Collection
      */
+     
+     public function user()
+    {
+      return $this->belongsTo(User::class);
+        
+        
+    }
     public function getByLimit(int $limit_count = 10)
     {
         // updated_atで降順に並べたあと、limitで件数制限をかけて結果を返す
