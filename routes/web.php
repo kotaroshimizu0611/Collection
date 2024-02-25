@@ -29,11 +29,26 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/posts', [PostController::class, 'index']);
+// トップページとしての投稿一覧ページへのルート
 Route::get('/', [PostController::class, 'index']);
+
+// 投稿一覧ページへのルートに名前を付ける
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+
+// 投稿作成ページへのルート
 Route::get('/posts/create', [PostController::class, 'create']);
-Route::get('/posts/{post}', [PostController::class ,'show']);
-Route::post('/posts', [PostController::class, 'store']);
+
+// 投稿詳細ページへのルート
+Route::get('/posts/{post}', [PostController::class, 'show']);
+
+// 投稿を保存するためのルート（既に名前付き）
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+
+// 投稿編集ページへのルート
 Route::get('/posts/{post}/edit', [PostController::class, 'edit']);
+
+// 投稿更新処理のルート
 Route::put('/posts/{post}', [PostController::class, 'update']);
-Route::delete('/posts/{post}', [PostController::class,'delete']);
+
+// 投稿削除処理のルート
+Route::delete('/posts/{post}', [PostController::class, 'delete']);
