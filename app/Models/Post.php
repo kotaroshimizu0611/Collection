@@ -9,42 +9,30 @@ use App\Models\User;
 
 class Post extends Model
 {
-    use HasFactory, SoftDeletes; // SoftDeletes トレイトをここで使用
+    use HasFactory, SoftDeletes; 
 
-    // モデルが代入を許可する属性
     protected $fillable = [
-        'title',
+        'playlist_name',
         'body',
+        'user_id'
     ];
 
-    /**
-     * 指定された件数のポストをupdated_atの降順で取得します。
-     *
-     * @param int $limit_count 取得する件数。デフォルトは10。
-     * @return \Illuminate\Database\Eloquent\Collection
-     */
-     
-     public function user()
-    {
-      return $this->belongsTo(User::class);
-        
-        
-    }
+    
     public function getByLimit(int $limit_count = 10)
     {
-        // updated_atで降順に並べたあと、limitで件数制限をかけて結果を返す
         return $this->orderBy('updated_at', 'DESC')->limit($limit_count)->get();
     }
 
-    /**
-     * 指定された件数でページネーションを使ってポストを取得します。
-     *
-     * @param int $limit_count 1ページあたりのポスト数。デフォルトは10。
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
-     */
-    public function getPaginateByLimit(int $limit_count = 10)
+    public static function getPaginateByLimit(int $limit_count = 5)
+{
+    // 'user' リレーションシップを含む投稿をページネーションで取得
+    return self::with('user')->orderBy('updated_at', 'DESC')->paginate($limit_count);
+}
+
+
+
+    public function user()
     {
-        // updated_atで降順に並べたあと、paginateでページネーションの処理をする
-        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    return $this->belongsTo('App\Models\User');
     }
 }
