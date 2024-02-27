@@ -24,7 +24,6 @@
     </article>
 @endforeach
 
->>>>>>> origin/master
     </div>
     <div class='paginate'>
         {{ $posts->links() }}
