@@ -16,7 +16,7 @@
                 <p class="playlist_name__error" style="color:red">{{ $errors->first('playlist_name') }}</p>
             </div>
             <div class="body">
-                <h2>Body</h2>
+                <h2>Songs</h2>
                 <!-- "name" 属性の修正 -->
                 <textarea name="body" placeholder="Yesterday the beatles">{{ old('body') }}</textarea>
                 <!-- エラーメッセージの表示を修正 -->
