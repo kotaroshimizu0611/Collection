@@ -12,13 +12,13 @@ class PostsTableSeeder extends Seeder
     {
         DB::table('posts')->insert([
             [
-                'user_id' => 1, // 実際の使用では既存のユーザーIDに置き換える
+               // 'user_id' => 1, // 実際の使用では既存のユーザーIDに置き換える
                 'playlist_name' => 'My Favorite Songs',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
             [
-                'user_id' => 1, // 実際の使用では既存のユーザーIDに置き換える
+                //'user_id' => 1, // 実際の使用では既存のユーザーIDに置き換える
                 'playlist_name' => 'Chill Vibes',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

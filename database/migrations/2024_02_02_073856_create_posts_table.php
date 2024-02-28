@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id(); // 主キー
-            $table->unsignedBigInteger('user_id'); // 外部キー
+            //$table->unsignedBigInteger('user_id'); // 外部キー
             $table->string('playlist_name');
             $table->timestamps(); // created_at と updated_at 
             $table->softDeletes(); // deleted_at 
